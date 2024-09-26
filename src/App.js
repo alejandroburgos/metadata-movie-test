@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Home2D } from "./pages/Home2D.js";
+import { Home3D } from "./pages/Home3D.js";
+import MovieDetail from "./components/MovieDetail.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home2D />} />
+        <Route path="/movies/:movieId" element={<MovieDetail />} />
+        <Route path="/3d" element={<Home3D />} />
+        <Route path="/favorites" element={<Home2D isFavoriteView={true} />} />
+      </Routes>
+    </>
   );
 }
 

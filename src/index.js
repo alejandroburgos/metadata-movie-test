@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from "react-dom/client";
+import { Suspense } from "react";
+import "./styles/global.scss";
+import App from "./App";
+import { PrimeReactProvider } from "primereact/api";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import Overlay from "./components/Overlay";
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+createRoot(document.getElementById("root")).render(
+  <>
+    <Provider store={store}>
+      <BrowserRouter>
+        <PrimeReactProvider>
+          <Suspense fallback={null}>
+            <App />
+          </Suspense>
+          <Overlay />
+        </PrimeReactProvider>
+      </BrowserRouter>
+    </Provider>
+    {/* <Logo style={{ position: 'absolute', bottom: 40, left: 40, width: 30 }} /> */}
+  </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
