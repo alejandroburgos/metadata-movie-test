@@ -17,7 +17,6 @@ export const ListMovie2D = ({ movies, favorites, isFavoriteView }) => {
 
   useEffect(() => {
     if (isFavoriteView) {
-      // llamadas de una en una y que se vayan guardando en un array
       favorites.forEach((id) => {
         dispatch(fetchMovieById(id));
       });
