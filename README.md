@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Metadata Movies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Metadata Movies es una aplicación web que permite a los usuarios buscar y visualizar detalles de películas en 2D y 3D. La aplicación utiliza React para la interfaz de usuario, Redux para la gestión del estado, y Three.js para renderizar gráficos en 3D.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- **Búsqueda de Películas**: Los usuarios pueden buscar películas por título.
+- **Visualización en 2D y 3D**: Las películas se pueden visualizar en una lista 2D o en un carrusel 3D interactivo.
+- **Detalles de Películas**: Al seleccionar una película, se muestra una página con detalles como el título, año, calificación de IMDb y sinopsis.
+- **Favoritos**: Los usuarios pueden filtrar las películas para ver solo sus favoritas.
+
+## Tecnologías Utilizadas
+
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **Redux**: Biblioteca para la gestión del estado de la aplicación.
+- **Three.js**: Biblioteca de JavaScript para crear y mostrar gráficos animados en 3D.
+- **React-Three-Fiber**: Biblioteca para integrar Three.js con React.
+- **PrimeReact**: Biblioteca de componentes de UI para React.
+- **Sass**: Preprocesador CSS para estilos.
+
+## Estructura del Proyecto
+
+- `src/`: Contiene el código fuente de la aplicación.
+  - `components/`: Componentes reutilizables de la aplicación.
+  - `pages/`: Páginas principales de la aplicación.
+  - `redux/`: Archivos relacionados con Redux (slices y store).
+  - `styles/`: Archivos de estilos globales.
+  - `utils/`: Utilidades y funciones auxiliares.
+- `public/`: Archivos públicos y estáticos.
+
+## Scripts Disponibles
+
+En el directorio del proyecto, puedes ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia la aplicación en modo de desarrollo.\
+Abre [http://localhost:3000](http://localhost:3000) para verlo en tu navegador.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.\
+Empaqueta correctamente React en modo de producción y optimiza la compilación para el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Inicia el corredor de pruebas en el modo de observación interactivo.
 
-### `npm run eject`
+## Instalación
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clona el repositorio.
+2. Ejecuta `npm install` para instalar las dependencias.
+3. Ejecuta `npm start` para iniciar la aplicación en modo de desarrollo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contribución
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Licencia
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto está licenciado bajo la Licencia MIT.
