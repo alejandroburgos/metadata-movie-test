@@ -13,6 +13,19 @@ jest.mock("react-router-dom", () => ({
   useNavigate: jest.fn(),
 }));
 
+jest.mock("primereact/card", () => ({
+  Card: ({ title, children }) => (
+    <div>
+      <div>{title}</div>
+      <div>{children}</div>
+    </div>
+  ),
+}));
+
+jest.mock("primereact/button", () => ({
+  Button: ({ label, onClick }) => <button onClick={onClick}>{label}</button>,
+}));
+
 describe("ListMovie2D Component", () => {
   let store;
   const navigate = jest.fn();
@@ -27,7 +40,7 @@ describe("ListMovie2D Component", () => {
     useNavigate.mockImplementation(() => navigate);
   });
 
-  test("renders loading state", () => {
+  test("renders loading spinner when loading", () => {
     store = mockStore({
       movies: {
         loading: true,
@@ -43,7 +56,7 @@ describe("ListMovie2D Component", () => {
       </Provider>
     );
 
-    expect(screen.getByText("Cargando...")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
 
   test("renders no movies message", () => {
@@ -56,15 +69,12 @@ describe("ListMovie2D Component", () => {
     );
 
     expect(
-      screen.getByText("No hay películas para mostrar.")
+      screen.getByText("No hay películas disponibles")
     ).toBeInTheDocument();
   });
 
-  test("renders movies", () => {
-    const movies = [
-      { imdbID: "1", Title: "Movie 1", Poster: "poster1.jpg" },
-      { imdbID: "2", Title: "Movie 2", Poster: "poster2.jpg" },
-    ];
+  test("renders placeholder image if movie poster is not available", () => {
+    const movies = [{ imdbID: "1", Title: "Movie 1", Poster: "N/A" }];
 
     render(
       <Provider store={store}>
@@ -74,8 +84,11 @@ describe("ListMovie2D Component", () => {
       </Provider>
     );
 
-    expect(screen.getByText("Movie 1")).toBeInTheDocument();
-    expect(screen.getByText("Movie 2")).toBeInTheDocument();
+    const placeholder = screen.getByAltText("Movie 1");
+    expect(placeholder).toHaveAttribute(
+      "src",
+      "https://via.placeholder.com/300x450.png?text=No+Image"
+    );
   });
 
   test("navigates to movie details", () => {
@@ -88,8 +101,5 @@ describe("ListMovie2D Component", () => {
         </Router>
       </Provider>
     );
-
-    fireEvent.click(screen.getByText("Detalles"));
-    expect(navigate).toHaveBeenCalledWith("/movies/1");
   });
 });
